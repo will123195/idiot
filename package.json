@@ -1,0 +1,27 @@
+{
+  "name": "idiot",
+  "version": "1.0.0",
+  "description": "Dumb client for REST APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/will123195/idiot.git"
+  },
+  "keywords": [
+    "dumb",
+    "client",
+    "rest"
+  ],
+  "author": "will123195",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/will123195/idiot/issues"
+  },
+  "homepage": "https://github.com/will123195/idiot#readme",
+  "dependencies": {
+    "client-request": "^1.0.1"
+  }
+}
