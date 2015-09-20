@@ -12,21 +12,44 @@ var idiot = module.exports = function (opts) {
   this.baseUrl = opts.baseUrl
 }
 
-idiot.prototype.get = function (resource, query, cb) {
+idiot.prototype.get = function (resource, opts, cb) {
+  this.run('get', resource, opts, cb)
+}
+
+idiot.prototype.post = function (resource, opts, cb) {
+  this.run('post', resource, opts, cb)
+}
+
+idiot.prototype.put = function (resource, opts, cb) {
+  this.run('put', resource, opts, cb)
+}
+
+idiot.prototype.delete = function (resource, opts, cb) {
+  this.run('delete', resource, opts, cb)
+}
+
+// opts.query
+// opts.body
+idiot.prototype.run = function (method, resource, opts, cb) {
   var self = this
-  if (typeof query === 'function') {
-    cb = query
-    query = {}
+  if (typeof opts === 'function') {
+    cb = opts
+    opts = {}
   }
 
+  var query = opts.query || {}
   var url = self.baseUrl + resource
   if (Object.keys(query).length > 0) {
     url += '?' + querystring.stringify(query)
   }
-  request({
+  var options = {
     uri: url,
-    method: 'GET'
-  }, function (error, response, body) {
+    method: method.toUpperCase()
+  }
+  if (opts.body) {
+    options.body = opts.body
+  }
+  request(options, function (error, response, body) {
     if (error) {
       return cb(500, error)
     }
