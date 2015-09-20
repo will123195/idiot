@@ -1,6 +1,6 @@
 {
   "name": "idiot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dumb client for REST APIs",
   "main": "index.js",
   "scripts": {
