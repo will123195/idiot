@@ -1,4 +1,4 @@
-var request = require('client-request')
+var request = require('request')
 var querystring = require('querystring')
 
 // opts.baseUrl
@@ -47,7 +47,7 @@ idiot.prototype.run = function (method, resource, opts, cb) {
     method: method.toUpperCase()
   }
   if (opts.body) {
-    options.body = opts.body
+    options.json = opts.body
   }
   request(options, function (error, response, body) {
     if (error) {
@@ -56,8 +56,7 @@ idiot.prototype.run = function (method, resource, opts, cb) {
     try {
       var data = JSON.parse(body)
     } catch (e) {
-      console.log(e)
-      data = {}
+      data = body
     }
     cb(response.statusCode, data)
   })

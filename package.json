@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/will123195/idiot#readme",
   "dependencies": {
-    "client-request": "^1.0.1"
+    "request": "^2.62.0"
   }
 }
