@@ -1,6 +1,6 @@
 var request = require('request')
 var querystring = require('querystring')
-var merge = require('deep-extend')
+var xtend = require('xtend')
 
 // opts.baseUrl
 // opts.ext
@@ -45,10 +45,10 @@ idiot.prototype.run = function (method, resource, opts, cb) {
     cb = opts
     opts = {}
   }
-  merge(query, opts.query)
+  var qs = xtend(query, opts.query)
   var url = self.baseUrl + resource
-  if (Object.keys(query).length > 0) {
-    url += '?' + querystring.stringify(query)
+  if (Object.keys(qs).length > 0) {
+    url += '?' + querystring.stringify(qs)
   }
   var options = {
     uri: url,
