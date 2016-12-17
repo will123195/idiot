@@ -1,6 +1,6 @@
 {
   "name": "idiot",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Simple JSON REST client",
   "main": "index.js",
   "scripts": {
