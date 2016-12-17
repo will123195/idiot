@@ -2,7 +2,8 @@ var test = require('tape');
 
 var Idiot = require('./index');
 var client = Idiot({
-  baseUrl: 'https://graph.facebook.com'
+  baseUrl: 'https://graph.facebook.com',
+  Promise: require('es6-promise-polyfill').Promise
 });
 
 test('fb promise', function (t) {

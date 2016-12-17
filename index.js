@@ -14,7 +14,10 @@ var Client = module.exports = function Client (opts) {
   if (opts.accessToken) {
     this.headers['x-access-token'] = opts.accessToken;
   }
-  this.Promise = opts.Promise || Promise;
+  this.Promise = opts.Promise;
+  if (!this.Promise && typeof Promise !== 'undefined') {
+    this.Promise = Promise;
+  }
 };
 
 if (typeof window !== 'undefined') {
