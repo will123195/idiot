@@ -1,6 +1,6 @@
 var test = require('tape');
 
-var Idiot = require('.');
+var Idiot = require('./index');
 var client = Idiot({
   baseUrl: 'https://graph.facebook.com'
 });
