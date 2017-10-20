@@ -7,7 +7,7 @@ var Client = module.exports = function Client (opts) {
     return new Client(opts);
   }
   opts = opts || {};
-  this.baseUrl = opts.baseUrl;
+  this.baseUrl = opts.baseUrl || '';
   this.headers = {
     'Content-Type': 'application/json'
   };
