@@ -59,7 +59,7 @@ Client.prototype.send = function (opts, cb) {
     self.statusCode = resp.statusCode;
     var ok = [200, 201, 202, 203, 204, 205, 206];
     if (ok.indexOf(resp.statusCode) === -1) {
-      return cb(body.error || body);
+      return cb((body && body.error) || body || resp.statusCode);
     }
     cb(null, body);
   });
